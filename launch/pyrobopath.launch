@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<launch>
+  <!-- GDB functionality -->
+  <arg name="debug" default="false" />
+  <arg unless="$(arg debug)" name="launch_prefix" value=""/>
+  <arg     if="$(arg debug)" name="launch_prefix" value="gdb --ex run --args"/>
+
+  <!-- Load Cartesian planning server -->
+  <rosparam file="$(find hydra_tic_tac_toe)/config/pyrobopath.yaml" command="load"/>
+  <node pkg="hydra_tic_tac_toe" name="pyrobopath_demo" type="tic_tac_toe_exec.py" output="screen"/>
+</launch>

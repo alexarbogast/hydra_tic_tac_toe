@@ -1,0 +1,31 @@
+rob1:
+  cartesian_planning_server:
+    error_threshold: 0.0005
+    max_eef_step: 0.001
+    max_step_iterations: 1000
+
+    robot_base_link: rob1_base_link
+    end_effector_link: rob1_marker_tool_tcp
+    joints:
+      - rob1_joint_1
+      - rob1_joint_2
+      - rob1_joint_3
+      - rob1_joint_4
+      - rob1_joint_5
+      - rob1_joint_6
+
+rob2:
+  cartesian_planning_server:
+    error_threshold: 0.0005
+    max_eef_step: 0.001
+    max_step_iterations: 1000
+
+    robot_base_link: rob2_base_link
+    end_effector_link: rob2_marker_tool_tcp
+    joints:
+      - rob2_joint_1
+      - rob2_joint_2
+      - rob2_joint_3
+      - rob2_joint_4
+      - rob2_joint_5
+      - rob2_joint_6

@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="sim"   default="true"  doc="Should sim hardware be launched?"/>
+  <arg name="rviz"  default="true" doc="Should RVIz be launched?"/>
+  <arg name="tool" default="marker_tool" doc="One of 'typhoon_extruder', 'marker_tool', 'tool0'"/>
+
+  <!-- GDB functionality -->
+  <arg name="debug" default="false" />
+  <arg unless="$(arg debug)" name="launch_prefix" value=""/>
+  <arg     if="$(arg debug)" name="launch_prefix" value="gdb --ex run --args"/>
+
+  <group if="$(arg sim)">
+    <include file="$(find hydra_bringup)/launch/hydra_system_sim.launch">
+      <arg name="rviz" value="false"/>
+      <arg name="tool" value="$(arg tool)"/>
+    </include>
+  </group>
+
+  <group if="$(arg rviz)">
+    <include file="$(find hydra_bringup)/launch/hydra_visualization.launch">
+      <arg name="load_robot_description" value="true"/>
+      <arg name="rvizconfig" value="$(find hydra_tic_tac_toe)/config/hydra_tic_tac_toe.rviz"/>
+      <arg name="tool" value="$(arg tool)"/>
+    </include>
+  </group>
+
+  <!-- Load Cartesian planning server -->
+  <include file="$(find hydra_tic_tac_toe)/launch/cartesian_planning_servers.launch"/>
+</launch>

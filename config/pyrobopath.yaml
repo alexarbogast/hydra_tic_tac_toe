@@ -1,0 +1,42 @@
+namespaces:
+  - 'rob1'
+  - 'rob2'
+
+retract_height: 0.050
+collision_gap_threshold: 0.003
+
+rob1:
+  base_frame: rob1_base
+  eef_frame: rob1_marker_tool_tcp
+  task_frame: work_object
+
+  velocity: 0.150
+  travel_velocity: 0.200
+
+  eef_rotation: [0.0, 0.0, 1.0, 0.0] # w, x, y, z
+  home_position: [0.0, deg(21), deg(45), 0.0, deg(-66), 0.0]
+
+  capabilities: [0, 1]
+
+  collision:
+    width: 0.10
+    length: 0.5
+    height: 2.0
+
+rob2:
+  base_frame: rob2_base
+  eef_frame: rob2_marker_tool_tcp
+  task_frame: work_object
+
+  velocity: 0.150
+  travel_velocity: 0.200
+
+  eef_rotation: [0.0, 0.0, 1.0, 0.0] # w, x, y, z
+  home_position: [0.0, deg(21), deg(45), 0.0, deg(-66), 0.0]
+
+  capabilities: [0, 2]
+
+  collision:
+    width: 0.10
+    length: 0.5
+    height: 2.0

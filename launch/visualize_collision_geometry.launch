@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<launch>
+  <!-- GDB functionality -->
+  <arg name="debug" default="false" />
+  <arg unless="$(arg debug)" name="launch_prefix" value=""/>
+  <arg     if="$(arg debug)" name="launch_prefix" value="gdb --ex run --args"/>
+
+  <rosparam file="$(find hydra_tic_tac_toe)/config/pyrobopath.yaml" command="load"/>
+  <node ns="rob1" pkg="hydra_tic_tac_toe" name="visualize_collision_geometry" type="visualize_collision_geometry.py"/>
+  <node ns="rob2" pkg="hydra_tic_tac_toe" name="visualize_collision_geometry" type="visualize_collision_geometry.py"/>
+</launch>

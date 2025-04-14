@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import rospy
 
 from pyrobopath_ros import ScheduleExecution

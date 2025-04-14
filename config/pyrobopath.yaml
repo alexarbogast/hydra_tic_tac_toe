@@ -1,6 +1,6 @@
 namespaces:
-  - 'rob1'
-  - 'rob2'
+  - rob1
+  - rob2
 
 retract_height: 0.050
 collision_gap_threshold: 0.003
@@ -19,9 +19,9 @@ rob1:
   capabilities: [0, 1]
 
   collision:
-    width: 0.10
     length: 0.5
-    height: 2.0
+    width: 0.17
+    height: 0.5
 
 rob2:
   base_frame: rob2_base
@@ -37,6 +37,6 @@ rob2:
   capabilities: [0, 2]
 
   collision:
-    width: 0.10
     length: 0.5
-    height: 2.0
+    width: 0.17
+    height: 0.5

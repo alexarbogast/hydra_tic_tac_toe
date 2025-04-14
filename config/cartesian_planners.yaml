@@ -1,7 +1,7 @@
 rob1:
   cartesian_planning_server:
     error_threshold: 0.0005
-    max_eef_step: 0.001
+    max_sampling_step: 0.05
     max_step_iterations: 1000
 
     robot_base_link: rob1_base_link
@@ -17,7 +17,7 @@ rob1:
 rob2:
   cartesian_planning_server:
     error_threshold: 0.0005
-    max_eef_step: 0.001
+    max_sampling_step: 0.05
     max_step_iterations: 1000
 
     robot_base_link: rob2_base_link

@@ -11,6 +11,8 @@ def main():
         width: float = rospy.get_param("collision/width")
         height: float = rospy.get_param("collision/height")
 
+        offset = rospy.get_param("collision/offset", [0.0, 0.0, 0.0])
+
         eef_frame = rospy.get_param("eef_frame")
 
     except KeyError as e:
@@ -31,9 +33,9 @@ def main():
     marker.action = Marker.ADD
     marker.frame_locked = True
 
-    marker.pose.position.x = length / 2
-    marker.pose.position.y = 0.0
-    marker.pose.position.z = 0.0
+    marker.pose.position.x = length / 2 - offset[0]
+    marker.pose.position.y = offset[1]
+    marker.pose.position.z = offset[2]
     marker.pose.orientation.x = 0.0
     marker.pose.orientation.y = 0.0
     marker.pose.orientation.z = 0.0
